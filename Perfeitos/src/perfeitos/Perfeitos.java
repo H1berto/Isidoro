@@ -24,7 +24,7 @@ class NumerosPerfeitos{
         for (int i = 2; i <= (n*min); i++) {
             if(ehPrimo(i)){
                 primos[cont]=i;
-//              System.out.println(i+" é primo.");
+             // System.out.println(i+" é primo.");
                 cont++;
             }
         }          
@@ -35,8 +35,8 @@ class NumerosPerfeitos{
         for(int i=0;p<qtd;i++){
            // System.out.println(primos[i]);
             if(ehPrimo((int)(Math.pow(2, primos[i])-1))){
-                long perfeito = (long) Math.pow(2, (primos[i]-1))* (long)(Math.pow(2, primos[i])-1);;
-                System.out.println("O "+(p+1)+"º numero perfeito é: "+perfeito);
+                System.out.println("| O "+(p+1)+"º numero perfeito é: "
+                        +(long) Math.pow(2, (primos[i]-1))* (long)(Math.pow(2, primos[i])-1));    
                 p++;
             }
         }
@@ -45,17 +45,33 @@ class NumerosPerfeitos{
 }
 public class Perfeitos {
 
-   public static void main(String[] args) {
+   public static void main(String[] args) { 
         long i;
         long j;
         long soma=0;
         int qtdperfeitos;
+        int notperfeito=0;
         Scanner entrada = new Scanner(System.in);
-        System.out.print("Digite a quantidade de numeros perfeitos a qual vc deseja: ");
+        System.out.println("|----------------------------------------------------------------------------------|");
+        System.out.println("|------------------------NUMEROS PERFEITOS DE ISIDORO------------------------------|");
+        System.out.println("|----------------------------------------------------------------------------------|");
+        System.out.println("|Digite a quantidade de numeros perfeitos a qual vc deseja, até o maximo de 8:     |");        
+        System.out.println("|----------------------------------------------------------------------------------|");
+        System.out.print("|Quantidade:");
         qtdperfeitos=entrada.nextInt();
-        
+        System.out.println("|----------------------------------------------------------------------------------|");
+       
+        while(qtdperfeitos>8){
+            System.out.println("|*.Quantidade muito alta! Digite um valor até 8, para que o algoritmo execute      |"
+                           + "\n|corretamente:(Em uma proxima versão do algoritmo,o limite para a quantidade de nu-|"
+                           + "\n|numeros será aumentado. :)                    |");
+            System.out.println("|----------------------------------------------------------------------------------|");
+            System.out.print("|Quantidade:");
+            qtdperfeitos=entrada.nextInt();
+            System.out.println("|----------------------------------------------------------------------------------|");
+        }
         NumerosPerfeitos perfeitos = new NumerosPerfeitos();
         perfeitos.ehPerfeito(qtdperfeitos);
-        
+        System.out.println("|----------------------------------------------------------------------------------|");
     }
 }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 class NumerosPerfeitos{
   int[] primos;
-  int min =10;
+  int min =100;
   
     boolean ehPrimo(int numero) {
         for (int j = 2; j < numero; j++) {
@@ -20,14 +20,20 @@ class NumerosPerfeitos{
     }
      void preencherPrimos(int n){
          int cont =0;
-         primos = new int[n*min];
-        for (int i = 2; i <= (n*min); i++) {
+         int tamanho=0;
+         
+        for (int i = 2; i <= min; i++) {
+            if(ehPrimo(i)){
+                tamanho++;
+            }
+        }    
+        primos = new int[tamanho];
+          for (int i = 2; i <= min; i++) {
             if(ehPrimo(i)){
                 primos[cont]=i;
-             // System.out.println(i+" é primo.");
                 cont++;
             }
-        }          
+        }      
     }
      void ehPerfeito(int qtd){
         preencherPrimos(qtd);
